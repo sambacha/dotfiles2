@@ -1,0 +1,64 @@
+# -*- mode: gitignore; -*-
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+/**/build
+.DS_Store
+node_modules
+
+# binary
+*.zip
+*.tar
+*.tar.gz
+
+# gpgp keys
+secring.*
+
+# pem keys
+*.pem
+
+# ansible
+*.retry
+
+# vim Session
+Session.vim
+Sessionx.vim
+__pycache__
+.history
+.hypothesis/
+build/
+reports/
