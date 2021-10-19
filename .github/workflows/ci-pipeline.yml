@@ -28,7 +28,6 @@ jobs:
       run: |
         bash --version; echo
         zsh  --version; echo
-        sh --version; echo
     - name: Shellcheck
       run: shellcheck
 
@@ -38,8 +37,6 @@ jobs:
     - name: Test zsh
       run: zsh dotfiles2.plugin.zsh
 
-    - name: Test sh
-      run: fish dotfiles2.plugin.sh
 #@note
 # darwin versions of shell env
 # $ printenv
