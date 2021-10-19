@@ -1,0 +1,51 @@
+# ci-pipeline.yml
+name: ci-pipeline
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    # The type of runner that the job will run on
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-16.04, ubuntu-18.04, ubuntu-20.04]
+    steps:
+    - uses: actions/checkout@v2
+
+    # Runs a single command using the runners shell
+    - name: Install prerequisites
+      shell: bash
+      run: |
+        if [[ "${{ matrix.os }}" == macos* ]]; then
+          brew install zsh bash shellcheck
+        elif [[ "${{ matrix.os }}" == ubuntu* ]]; then
+          sudo apt -y update
+          sudo apt -y install zsh shellcheck
+        fi
+    - name: Show version
+      run: |
+        bash --version; echo
+        zsh  --version; echo
+        sh --version; echo
+    - name: Shellcheck
+      run: shellcheck
+
+    - name: Test bash
+      run: bash dotfiles2.plugin.sh
+
+    - name: Test zsh
+      run: zsh dotfiles2.plugin.zsh
+
+    - name: Test sh
+      run: fish dotfiles2.plugin.sh
+#@note
+# darwin versions of shell env
+# $ printenv
+# SHELL=/bin/bash
+# /bin/bash --version
+# CPPFLAGS=-I/usr/local/opt/readline/include
+# versions
+# @default GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)
+# @brew GNU bash, version 5.1.0(1)-release (x86_64-apple-darwin19.6.0)
