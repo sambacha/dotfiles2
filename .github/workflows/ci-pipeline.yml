@@ -35,7 +35,7 @@ jobs:
       run: bash dotfiles2.plugin.sh
 
     - name: Test zsh
-      run: zsh dotfiles2.plugin.zsh
+      run: zsh dotfiles2.plugin.sh
 
 #@note
 # darwin versions of shell env
