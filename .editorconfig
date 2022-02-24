@@ -50,3 +50,15 @@ trim_trailing_whitespace    = true
 
 [Makefile]
 indent_style = tab
+
+[*.{cc,hh,hpp,pl,pm,sh,t}]
+indent_style = space
+intend_size = 4
+
+[*.nix]
+indent_style = space
+indent_size = 2
+
+# Match diffs, avoid to trim trailing whitespace
+[*.{diff,patch}]
+trim_trailing_whitespace = false
