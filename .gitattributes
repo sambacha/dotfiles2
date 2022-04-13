@@ -1,4 +1,8 @@
+# -*- mode: gitattributes; -*-
+justfile linguist-language=Make
+VERSION export-subst
 *.sh text eol=lf
+*.shlib linguist-language=Bash
 *.bash text eol=lf
 git_ssh text eol=lf
 repo text eol=lf
