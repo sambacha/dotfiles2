@@ -1,11 +1,26 @@
+# top-most EditorConfig file
 root = true
 
-# defaults
+# All files
 [*]
 charset = utf-8
 end_of_line = lf
+indent_size = 2
+indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
+
+# Markdown
+[*.{md,adoc,asciidoc}]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = false
+
+# Match nix files, set indent to spaces with width of two
+[*.nix]
+indent_style = space
+indent_size = 2
 
 # JavaScript, JSON, JSX, JavaScript Modules, TypeScript
 # https://github.com/feross/standard
@@ -20,6 +35,7 @@ indent_style = space
 indent_size = 2
 indent_style = space
 trim_trailing_whitespace = true
+
 # TOML
 # https://github.com/toml-lang/toml/tree/master/examples
 [*.toml]
@@ -48,17 +64,16 @@ insert_final_newline        = true
 tab_width                   = 4
 trim_trailing_whitespace    = true
 
-[Makefile]
-indent_style = tab
-
-[*.{cc,hh,hpp,pl,pm,sh,t}]
-indent_style = space
-intend_size = 4
-
-[*.nix]
-indent_style = space
-indent_size = 2
-
 # Match diffs, avoid to trim trailing whitespace
 [*.{diff,patch}]
 trim_trailing_whitespace = false
+
+
+# Ignore fixtures and vendored files
+[{dist,artifacts,vendor,test/fixtures}/**]
+charset = unset
+end_of_line = unset
+indent_size = unset
+indent_style = unset
+insert_final_newline = unset
+trim_trailing_spaces = unset
